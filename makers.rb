@@ -17,3 +17,13 @@ puts "2 + 2 = #{2 + 2}"
 hour = 10
 # puts "I will leave no later than " + hour.to_s
 puts "I will leave no later than #{hour}"
+
+#nil
+age = nil
+	if age.nil?
+		puts "I have no idea how old I am"
+	else
+		puts "I'm #{age} years old"
+end
+
+
