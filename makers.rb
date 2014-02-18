@@ -14,6 +14,7 @@ puts ("Hello, world")
 
 puts "2 + 2 = #{2 + 2}"
 
+#Interpolation
 hour = 10
 # puts "I will leave no later than " + hour.to_s
 puts "I will leave no later than #{hour}"
@@ -25,5 +26,13 @@ age = nil
 	else
 		puts "I'm #{age} years old"
 end
+
+#true and false: boolean values
+puts 2 + 2 == 4
+puts 2 + 2 == 5
+puts 2.even?
+puts 6.odd?
+
+
 
 
