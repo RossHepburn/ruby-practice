@@ -7,7 +7,7 @@
 #f. salary 25000, deposit 30000, property_value 150000
 
 def header
-	puts "Morgage Calculator"
+	puts "Mortgage Calculator"
   	puts "-----------------------"
 end	
 
@@ -18,17 +18,20 @@ def customer_input
   	deposit = gets.chomp.to_i
   	puts "What is the value of the property"
   	property_value = gets.chomp.to_i
+  	puts "Have you ever been bankrupt yes/no"
+  	bankrupt_input = gets.chomp.downcase
+  	bankrupt = bankrupt_input == 'yes'
 
-  	[salary, deposit, property_value]
+  	[salary, deposit, property_value, bankrupt]
 end
 
 
-def provide_mortgage?(salary, deposit, property_value)
+def provide_mortgage?(salary, deposit, property_value, bankrupt)
   loan_amount = property_value - deposit
   min_deposit = property_value < 650000 ? 0.05 : 0.2 # 5% if less than 650000, 20% if more than 65,000
   max_multiplier = 5 # how many annual incomes can be borrowed
   deposit >= property_value * min_deposit && 
-  (salary * max_multiplier >= loan_amount || deposit >= property_value * 0.75)
+  (salary * max_multiplier >= loan_amount || deposit >= property_value * 0.75) && !bankrupt
 end
 
 def print_answer(answer)
@@ -39,8 +42,8 @@ def print_answer(answer)
 	end
 end
 
-
-	salary, deposit, property_value = customer_input
-	answer = provide_mortgage?(salary, deposit, property_value)
+	header
+	salary, deposit, property_value, bankrupt = customer_input
+	answer = provide_mortgage?(salary, deposit, property_value, bankrupt)
 	print_answer(answer)
 
